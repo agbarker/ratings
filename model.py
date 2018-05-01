@@ -39,9 +39,12 @@ class Rating(db.Model):
 
     #tells SQLAlchemy to create columns and says we're allowed to have null
     rating_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    movie_id = db.Column(db.Integer, nullable=True) #might not want this to be null
-    user_id = db.Column(db.Integer, nullable=True) #might not want this to be null (see if it exists)
-    score = db.Column(db.Integer, nullable=True)
+    movie_id = db.Column(db.Integer, db.ForeignKey('movies.movie_id')) #might not want this to be null
+    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id')) #might not want this to be null (see if it exists)
+    score = db.Column(db.Integer)
+
+    user = db.relationship("User", backref=db.backref("ratings", order_by=rating_id))
+    movie = db.relationship("Movie", backref=db.backref("ratings", order_by=rating_id))
 
 class Movie(db.Model):
     """Information of movies."""
