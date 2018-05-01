@@ -36,10 +36,36 @@ def load_users():
 
 def load_movies():
     """Load movies from u.item into database."""
+    User.query.delete()
+
+    for row in open("seed_data/u.item"):
+        row = row.rstrip()
+        movie_id, title, released_at, imdb_url = row.split("|")
+
+        released_movies = User(title=title, 
+                            movie_id=movie_id,
+                            released_at=released_at,
+                            imdb_url=imdb_url)
+    if released_str:
+        released_at = datetime.datetime.strptime(released_str, "31-Oct-2015")
+    else:
+        released_at = None
+
+        db.session.add(released_at)
 
 
 def load_ratings():
     """Load ratings from u.data into database."""
+    User.query.delete()
+
+    for row in open("seed_data/u.data"):
+        row = row.rstrip()
+        user_id, movie_id, score, timestamp = row.split("\t")
+
+        released_str = User(movie_id=movie_id,
+                            user_id=user_id,
+                            score=score)
+       
 
 
 def set_val_user_id():
