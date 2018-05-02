@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <title>Ratings</title>
+
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+	    <ul class=flashes>
+	    {% for message in messages %}
+	      <li>{{ message }}</li>
+	    {% endfor %}
+	    </ul>
+	  {% endif %}
+	{% endwith %}
+
+
+	<form action="/register", method="GET">
+		<input type="submit" name="Log In" value="Log In">
+	</form>
+
+
+	<form action="/log_out", method="GET">
+		<input type="submit" name="Log Out" value="Log Out">
+	</form>
+
+</head>
+
+<body>
+  Ratings
+  <hr>
+
+  {% block content %} put your content here {% endblock %}
+
+</body>
+</html>
+
+<!-- 
+  <form action="/register", method="POST">
+    <label>Enter email
+      <input type="text" name="email"></label>
+    <label>Enter password
+      <input type="text" name="password"></label>
+    <input type="submit" name="Submit"> -->
+
+
+<!-- <!doctype html>
+<html>
+<head>
+	<title>Ratings</title>
+
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+	    <ul class=flashes>
+	    {% for message in messages %}
+	      <li>{{ message }}</li>
+	    {% endfor %}
+	    </ul>
+	  {% endif %}
+	{% endwith %}
+</head>
+<body>
+	{% block body %}
+
+	{% endblock %}
+</body>
+</html> -->
