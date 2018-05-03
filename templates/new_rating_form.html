@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <h2>Add Your Rating</h2>
+
+  <!-- form, takes in email and password -->
+
+  <form action="/new_rating", method="POST">
+    <label>Enter Rating
+      <input type="text" name="rating"></label>
+    <input type="submit" name="Submit">
+    
+  </form>
+
+
+
+
+
+
+
+
+
+{% endblock %}

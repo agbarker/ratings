@@ -13,11 +13,20 @@
 	  {% endif %}
 	{% endwith %}
 
+	<a href="/">
+          Homepage
+    </a><br>
+
+
+
+
 
 	{% if session.get("user_id") %}
 		<form action="/log_out", method="GET">
 			<input type="submit" name="Log Out" value="Log Out">
 		</form>
+
+		 
 	{% else %}
 			<form action="/register", method="GET">
 				<input type="submit" name="register" value="Register">
