@@ -14,14 +14,23 @@
 	{% endwith %}
 
 
-	<form action="/register", method="GET">
-		<input type="submit" name="Log In" value="Log In">
-	</form>
+	{% if session.get("user_id") %}
+		<form action="/log_out", method="GET">
+			<input type="submit" name="Log Out" value="Log Out">
+		</form>
+	{% else %}
+			<form action="/register", method="GET">
+				<input type="submit" name="register" value="Register">
+			</form> <br>
+			<form action="/log_in", method="GET">
+				<input type="submit" name="Log In" value="Log In">
+			</form>
+	{% endif %}
 
+		
+	
 
-	<form action="/log_out", method="GET">
-		<input type="submit" name="Log Out" value="Log Out">
-	</form>
+	
 
 </head>
 
